@@ -141,16 +141,11 @@ class Moment {
 }
 
 class MomentController {
+    + start(): void
     + addMomentMenu(): void
     + showMomentsMenu(): void
     + deleteMomentMenu(): void
     + filterByMenu(): void
-    + deleteMomentMenu(): void
-    + addMoment(...): void
-    - getFilterByEmotion(int): List<Moment>
-    - getFilterByDate(LocalDate): List<Moment>
-    - inputDate(): LocalDate
-    - pressEnterToContinue(): void
 }
 
 class Emotion {
@@ -165,11 +160,21 @@ class View {
     + showMoments(List<Moment>): void
     + showFilterMenu(): void
     + showMoment(Moment): void
+    + inputEmotionSelection(): int
 }
 
-MomentController --> Moment
-MomentController --> Emotion
+class Helpers {
+    + addMoment(...): void
+    + getFilterByEmotion(int): List<Moment>
+    + getFilterByDate(LocalDate): List<Moment>
+    + inputDate(): LocalDate
+    + pressEnterToContinue(): void
+}
+
 MomentController --> View
+Helpers --> MomentController
+Moment --> MomentController
+Emotion --> MomentController
 ```
 ## User Stories and Acceptance Criteria
 User Stories:
